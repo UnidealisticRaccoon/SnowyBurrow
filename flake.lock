@@ -17,6 +17,26 @@
         "type": "indirect"
       }
     },
+    "haumea": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1697205539,
+        "narHash": "sha256-gHEy0Q+eEQJkWl6/DpFxXPOlTx/lMU7Pvs/bwoq4OhI=",
+        "owner": "nix-community",
+        "repo": "haumea",
+        "rev": "fc119c500189f739fec7ad33d111f9c92910eccf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "haumea",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1698924604,
@@ -54,6 +74,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "haumea": "haumea",
         "nixpkgs": "nixpkgs"
       }
     }
