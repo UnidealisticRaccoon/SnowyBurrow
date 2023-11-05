@@ -1,0 +1,6 @@
+builds:
+  exclude:
+    - "checks.*.pre-commit"
+  include:
+    - "*.x86_64-linux.*"
+
