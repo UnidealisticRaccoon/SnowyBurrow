@@ -12,4 +12,4 @@
 [garnix badge]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FUnidealisticRaccoon%2FSnowyBurrow%3Fbranch%3Dmain
 [garnix link]: https://garnix.io
 
-[^1]: Also powered by many settings from fellow `.nix` users. I tried to give credit as much as possible anotatting the files with [REUSE][REUSE].
+[^1]: Also powered by many settings from fellow `.nix` users. I tried to give credit as much as possible annotating the files with [REUSE][REUSE].
