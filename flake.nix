@@ -31,11 +31,15 @@
   };
 
   outputs = inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ ];
+    flake-parts.lib.mkFlake { inherit inputs; } ({ self, lib, ... }:
+      let
+        selfLib = import ./nix/lib { inherit inputs lib; };
+      in
+      {
+        flake.lib = selfLib;
+
+        imports = selfLib.buildModuleList ./nix/flake;
 
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
-
-      flake = { };
-    };
+      });
 }
