@@ -23,10 +23,47 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    # flake modules
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flat-flake = {
+      url = "github:linyinfeng/flat-flake";
+      inputs.crane.follows = "crane";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+      inputs.rust-overlay.follows = "rust-overlay";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+
     # libraries
+    systems.url = "github:nix-systems/default";
+    crane = {
+      url = "github:ipetkov/crane";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     haumea = {
       url = "github:nix-community/haumea";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
+    # compatibility layer
+    flake-compat = {
+      flake = false;
+      url = "github:edolstra/flake-compat";
     };
   };
 
