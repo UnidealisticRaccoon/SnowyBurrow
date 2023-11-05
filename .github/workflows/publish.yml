@@ -1,4 +1,4 @@
-name: "flakehub"
+name: "publish"
 
 on:
   push:
@@ -6,15 +6,15 @@ on:
       - "main"
 
 jobs:
-  publish:
+  flakehub:
     runs-on: "ubuntu-latest"
     permissions:
       contents: "read"
       id-token: "write"
     steps:
       - uses: "actions/checkout@v4"
-      - uses: "DeterminateSystems/nix-installer-action@main"
-      - uses: "DeterminateSystems/flakehub-push@main"
+      - uses: "DeterminateSystems/nix-installer-action@v6"
+      - uses: "DeterminateSystems/flakehub-push@v3"
         with:
           rolling: true
           visibility: "public"
