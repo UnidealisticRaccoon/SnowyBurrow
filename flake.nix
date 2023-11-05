@@ -15,18 +15,28 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       # https://github.com/hercules-ci/flake-parts/pull/162#issuecomment-1570753296
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    # nixpkgs
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.05";
+
     # flake modules
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pre-commit-hooks-nix = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.gitignore.follows = "gitignore-nix";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
     flat-flake = {
       url = "github:linyinfeng/flat-flake";
@@ -54,6 +64,10 @@
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
     };
+    gitignore-nix = {
+      url = "github:hercules-ci/gitignore.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -77,6 +91,6 @@
 
         imports = selfLib.buildModuleList ./nix/flake;
 
-      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
+        systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
       });
 }
