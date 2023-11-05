@@ -26,6 +26,7 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.05";
 
     # flake modules
+    flake-root.url = "github:srid/flake-root";
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
