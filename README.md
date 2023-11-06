@@ -2,6 +2,7 @@
 
 > Personal Nix Config: powered by [flake-parts][flake-parts] [^1]
 
+[![CI][CI badge]][CI link]
 [![FlakeHub][FlakeHub badge]][FlakeHub link]
 [![REUSE][REUSE badge]][REUSE compliance]
 [![garnix][garnix badge]][garnix link]
@@ -16,6 +17,8 @@ _And the usual copies?_ &rarr; [`./LICENSES`][Project licenses].
 [REUSE]: https://reuse.software
 [FlakeHub badge]: https://img.shields.io/endpoint?url=https://flakehub.com/f/UnidealisticRaccoon/SnowyBurrow/badge
 [FlakeHub link]: https://flakehub.com/flake/UnidealisticRaccoon/SnowyBurrow
+[CI badge]: https://github.com/UnidealisticRaccoon/SnowyBurrow/actions/workflows/ci.yml/badge.svg
+[CI link]: https://github.com/UnidealisticRaccoon/SnowyBurrow/actions/workflows/ci.yml
 [REUSE badge]: https://api.reuse.software/badge/github.com/UnidealisticRaccoon/SnowyBurrow
 [REUSE compliance]: https://api.reuse.software/info/github.com/UnidealisticRaccoon/SnowyBurrow
 [garnix badge]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FUnidealisticRaccoon%2FSnowyBurrow%3Fbranch%3Dmain
