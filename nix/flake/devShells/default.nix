@@ -3,9 +3,11 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ ... }: {
+{ inputs, ... }: {
   perSystem = { self', config, pkgs, lib, ... }: {
-    checks = lib.mapAttrs' (name: drv: lib.nameValuePair "devShells/${name}" drv) self'.devShells;
+    checks = inputs.flake-utils.lib.flattenTree {
+      devShells = lib.recurseIntoAttrs self'.devShells;
+    };
 
     devShells.default = pkgs.mkShell {
       shellHook = ''
