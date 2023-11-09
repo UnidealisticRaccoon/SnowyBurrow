@@ -30,6 +30,7 @@
     };
 
     # nixpkgs
+    nixpkgs-latest.url = "github:NixOS/nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.05";
 
