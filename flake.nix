@@ -92,9 +92,9 @@
   };
 
   outputs = inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } ({ self, lib, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } ({ self, config, lib, ... }:
       let
-        selfLib = import ./nix/lib { inherit inputs lib; };
+        selfLib = import ./nix/lib { inherit self inputs config lib; };
       in
       {
         flake.lib = selfLib;

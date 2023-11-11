@@ -2,9 +2,9 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ inputs, lib }:
-lib.makeExtensible (self: {
+{ self, inputs, config, lib, ... }:
+lib.makeExtensible (selfLib: rec {
   flattenTree = import ./flatten-tree.nix { inherit lib; };
   rakeLeaves = import ./rake-leaves.nix { inherit inputs lib; };
-  buildModuleList = import ./build-module-list.nix { inherit self lib; };
+  buildModuleList = import ./build-module-list.nix { inherit selfLib lib; };
 })
