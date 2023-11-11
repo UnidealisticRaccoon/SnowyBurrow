@@ -2,8 +2,8 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ self, lib }:
+{ selfLib, lib }:
 let
-  inherit (self) flattenTree rakeLeaves;
+  inherit (selfLib) flattenTree rakeLeaves;
 in
 dir: lib.attrValues (flattenTree (rakeLeaves dir))
