@@ -3,9 +3,12 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ lib, ... }:
+{ self, lib, ... }:
 {
   imports = lib.attrValues (import ../../modules/flake);
 
-  flake.flakeModules = import ../../modules/flake;
+  flake = {
+    flakeModules = import ../../modules/flake;
+    homeModules = self.lib.rakeLeaves ../../modules/home;
+  };
 }
