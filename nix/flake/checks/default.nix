@@ -15,6 +15,8 @@
     settings = {
       excludes = [
         "flake.lock"
+        "secrets/.*/[^/]+\.(yaml|json|env|ini)$"
+        ".*/terraform.tfstate.(yaml|json|env|ini)$"
       ];
 
       hooks = {
