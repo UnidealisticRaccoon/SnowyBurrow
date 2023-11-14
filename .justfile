@@ -17,10 +17,16 @@ alias tfd := terraform-destroy
 default:
     @just --choose --unsorted --justfile {{justfile()}} --list-heading ''
 
-_sops-decrypt:
+_hci-get-state:
+    hci state get --name terraform.tfstate.json --file {{terraformdir}}/terraform.tfstate.json
+
+_hci-put-state:
+    hci state put --name terraform.tfstate.json --file {{terraformdir}}/terraform.tfstate.json
+
+_sops-decrypt: (_hci-get-state)
     sops -d -i {{terraformdir}}/terraform.tfstate.json
 
-_sops-encrypt:
+_sops-encrypt: && (_hci-put-state)
     sops -e -i {{terraformdir}}/terraform.tfstate.json
 
 _terraform-init: (_sops-decrypt)
@@ -28,7 +34,7 @@ _terraform-init: (_sops-decrypt)
     terraform -chdir={{terraformdir}} validate
 
 _terraform-clean: (_sops-encrypt)
-    cd {{terraformdir}} && find -not \( -name '*.tf' -or -name 'terraform.tfstate.json' -or -name '.terraform.lock.hcl' \) -delete
+    cd {{terraformdir}} && find -not \( -name '*.tf' -or -name '.terraform.lock.hcl' \) -delete
 
 # show terraform state
 terraform-show: (_terraform-init) && (_terraform-clean)
