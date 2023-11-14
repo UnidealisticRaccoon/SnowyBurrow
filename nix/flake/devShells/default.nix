@@ -29,6 +29,9 @@
           # CI
           hci
 
+          # Infra
+          terraform
+
           # Secrets
           age
           sops
