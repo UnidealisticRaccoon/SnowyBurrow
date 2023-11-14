@@ -1,3 +1,4 @@
 result
 .direnv
+.decrypted~*
 .pre-commit-config.yaml
