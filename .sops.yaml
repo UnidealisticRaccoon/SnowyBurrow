@@ -7,3 +7,5 @@ keys:
   - &pgp_procyon 2764AA78791D69DF7E8916D640802D0919B2FB7D
 creation_rules:
   - pgp: *pgp_procyon
+  - path_regex: infrastructure/terraform.tfstate.(yaml|json|env|ini)$
+  - path_regex: secrets/terraform/[^/]+\.(yaml|json|env|ini)$

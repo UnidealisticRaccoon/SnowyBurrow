@@ -15,6 +15,13 @@
     treefmt = {
       inherit (config.flake-root) projectRootFile;
 
+      settings.formatter.prettier = {
+        excludes = [
+          "secrets/**/*.{yaml,json,ini,env,txt}"
+          "infrastructure/**/terraform.tfstate.json"
+        ];
+      };
+
       programs = {
         shfmt.enable = true;
         prettier.enable = true;
