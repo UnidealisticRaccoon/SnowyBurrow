@@ -32,6 +32,11 @@
           # Infra
           terraform
 
+          # Misc
+          jq
+          fzf
+          just
+
           # Secrets
           age
           sops
