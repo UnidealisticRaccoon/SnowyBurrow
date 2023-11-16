@@ -30,27 +30,29 @@
         TF_IN_AUTOMATION = 1;
 
         gpg = ./GPG.pub;
-        sops = "${inputs.self}/.sops.yaml";
-        tfDir = "${inputs.self}/infrastructure";
+        FLAKE_REF = inputs.self;
 
         getStateScript = ''
-          mkdir -p "$PWD/infrastructure"
-          export workingDir="$PWD/infrastructure"
-          stateFileName="$workingDir/$tfstateName"
+          mkdir -p "$PWD/infrastructure/terraform"
+          mkdir -p "$PWD/secrets/infrastructure/terraform"
+          export workingDir="$PWD/infrastructure/terraform"
+          export secretsDir="$PWD/secrets/infrastructure/terraform"
+          stateFileName="$secretsDir/$tfstateName"
           getStateFile "$tfstateName" "$stateFileName"
-          readSecretString terraform-secret .ageKey > "$workingDir/keys.txt"
+          readSecretString terraform-secret .ageKey > "$secretsDir/keys.txt"
         '';
 
         userSetupPhase = ''
+          ls -lah $PWD
+          cp -r $FLAKE_REF $PWD
+          ls -lah $PWD
           gpg --import "$gpg"
-          export SOPS_AGE_KEY_FILE=$workingDir/keys.txt
-          cp "$sops" "$PWD/.sops.yaml"
+          export SOPS_AGE_KEY_FILE=$secretsDir/keys.txt
           sops -d -i "$stateFileName"
-          cp -r "$tfDir" "$PWD"
           terraform -chdir=$workingDir init
         '';
 
-        priorCheckScript = "echo 'validating...' && terraform -chdir=$workingDir validate";
+        priorCheckScript = "terraform -chdir=$workingDir validate";
 
         effectScript =
           if (herculesCI.config.repo.branch == "main")
@@ -60,7 +62,8 @@
         putStateScript = ''
           sops -e -i "$stateFileName"
           putStateFile "$tfstateName" "$stateFileName"
-          cd $workingDir && find -not \( -name '*.tf' -or -name '.terraform.lock.hcl' \) -delete
+          cd $workingDir && find -type f -delete
+          cd $secretsDir && find -type f -delete
         '';
       }
     );

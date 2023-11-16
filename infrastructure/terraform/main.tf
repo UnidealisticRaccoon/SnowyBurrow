@@ -3,7 +3,9 @@
 # SPDX-License-Identifier: MIT
 
 terraform {
+  required_version = "~> 1.6"
+
   backend "local" {
-    path = "terraform.tfstate.json"
+    path = "../../secrets/infrastructure/terraform/terraform.tfstate.json"
   }
 }
