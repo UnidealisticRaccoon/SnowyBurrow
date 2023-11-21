@@ -23,7 +23,7 @@ let
       email = lib.mkOption {
         type = lib.types.str;
       };
-      key = {
+      key = lib.mkOption {
         type = lib.types.attrsOf keySubmodule;
       };
     };

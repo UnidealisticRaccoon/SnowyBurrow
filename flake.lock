@@ -20,6 +20,29 @@
         "type": "github"
       }
     },
+    "ez-configs": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1700261309,
+        "narHash": "sha256-YaPfaNl8KSS0/tGKT6WO/UJ6xd/c4O13IrIERK0pFrM=",
+        "owner": "ehllie",
+        "repo": "ez-configs",
+        "rev": "fd37acbb7db32e68c9fcf66a916eceb0b4754573",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ehllie",
+        "repo": "ez-configs",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -297,6 +320,7 @@
     "root": {
       "inputs": {
         "crane": "crane",
+        "ez-configs": "ez-configs",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",

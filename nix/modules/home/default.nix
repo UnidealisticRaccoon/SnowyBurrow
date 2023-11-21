@@ -3,11 +3,15 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ flake, config, pkgs, lib, ... }:
+{ ezModules, flake, config, pkgs, lib, ... }:
 {
-  targets.genericLinux.enable = true;
+  imports = [
+    ezModules.direnv
+  ];
 
   programs.home-manager.enable = true;
+
+  targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
   home = {
     inherit (flake.selfLib.data) stateVersion;
