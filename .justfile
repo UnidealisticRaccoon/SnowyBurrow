@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2023 Unidealistic Raccoon <procyon@secureninja.maskmy.id>
+# SPDX-FileCopyrightText: 2023 Sridhar Ratnakumar <srid@srid.ca>
 #
 # SPDX-License-Identifier: MIT
 
@@ -16,6 +17,12 @@ alias tfd := terraform-destroy
 alias tfr := terraform-refresh
 alias tfo := terraform-outputs
 alias nvf := nvfetcher-update
+alias nxf := nix-fmt
+alias nxch := nix-check
+alias nxi := nix-io
+alias nxu := nix-update
+alias nxd := nix-dev
+alias nxcl := nix-clean
 
 [private]
 default:
@@ -53,5 +60,31 @@ terraform-refresh: (_terraform-init) && (_terraform-clean)
 terraform-outputs: (_terraform-init) && (_terraform-clean)
     terraform -chdir={{tfDir}} output
 
+# update packages with nvfetcher
 nvfetcher-update:
     nix run .#devPackages/nvfetcher-self -- -o nix/pkgs/_sources
+
+# fmt files
+nix-fmt:
+  nix fmt
+
+# check flake
+nix-check: (nix-fmt)
+  nix flake check
+
+# print inputs and outputs
+nix-io:
+  nix flake metadata
+  nix flake show
+
+# update nix flake
+nix-update:
+  nix flake update
+
+# enter devshell
+nix-dev:
+  nix develop
+
+# remove build outputs
+nix-clean:
+  rm -f ./result
