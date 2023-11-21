@@ -42,6 +42,11 @@
 
     # flake modules
     flake-root.url = "github:srid/flake-root";
+    ez-configs = {
+      url = "github:ehllie/ez-configs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -103,9 +108,9 @@
   };
 
   outputs = inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } ({ self, config, lib, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } ({ self, config, pkgs, lib, ... }:
       let
-        selfLib = import ./nix/lib { inherit self inputs config lib; };
+        selfLib = import ./nix/lib { inherit self inputs config pkgs lib; };
       in
       {
         flake.lib = selfLib;
