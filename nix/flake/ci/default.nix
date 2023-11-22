@@ -18,41 +18,35 @@
         inputs = with pkgs; [
           age
           sops
-          gnupg
+          just
           terraform
         ];
 
         secretsMap.terraform-secret = "terraform-secret";
 
-        tfstateName = "terraform.tfstate.json";
-
         TF_INPUT = 0;
         TF_IN_AUTOMATION = 1;
-
-        gpg = ./GPG.pub;
-        FLAKE_REF = inputs.self;
+        FLAKE_REF = "${inputs.self}";
 
         getStateScript = ''
           mkdir -p "$PWD/infrastructure/terraform"
           mkdir -p "$PWD/secrets/infrastructure/terraform"
           export workingDir="$PWD/infrastructure/terraform"
           export secretsDir="$PWD/secrets/infrastructure/terraform"
-          stateFileName="$secretsDir/$tfstateName"
-          getStateFile "$tfstateName" "$stateFileName"
           readSecretString terraform-secret .ageKey > "$secretsDir/keys.txt"
         '';
 
         userSetupPhase = ''
-          ls -lah $PWD
-          cp -r $FLAKE_REF $PWD
-          ls -lah $PWD
-          gpg --import "$gpg"
           export SOPS_AGE_KEY_FILE=$secretsDir/keys.txt
-          sops -d -i "$stateFileName"
+          cp -r $FLAKE_REF/{infrastructure,secrets} $PWD
+          export GOOGLE_CREDENTIALS=$(sops -d $PWD/secrets/infrastructure/terraform/google.json | tr -s '\n' ' ')
           terraform -chdir=$workingDir init
         '';
 
-        priorCheckScript = "terraform -chdir=$workingDir validate";
+        priorCheckScript = ''
+          terraform -chdir=$workingDir validate
+          terraform -chdir=$workingDir refresh
+        '';
 
         effectScript =
           if (herculesCI.config.repo.branch == "main")
@@ -60,9 +54,6 @@
           else "terraform -chdir=$workingDir plan";
 
         putStateScript = ''
-          sops -e -i "$stateFileName"
-          putStateFile "$tfstateName" "$stateFileName"
-          cd $workingDir && find -type f -delete
           cd $secretsDir && find -type f -delete
         '';
       }
