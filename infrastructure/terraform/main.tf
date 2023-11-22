@@ -5,8 +5,9 @@
 terraform {
   required_version = "~> 1.6.3"
 
-  backend "local" {
-    path = "../../secrets/infrastructure/terraform/terraform.tfstate.json"
+  backend "gcs" {
+    prefix = "workspaces"
+    bucket = "ant-de17fa6d"
   }
 }
 
