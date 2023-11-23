@@ -9,7 +9,7 @@
     ezModules.direnv
   ];
 
-  programs.home-manager.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
