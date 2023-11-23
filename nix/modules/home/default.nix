@@ -13,6 +13,12 @@
 
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
+  programs = {
+    ssh.enable = true;
+    gpg.enable = true;
+    home-manager.enable = true;
+  };
+
   home = {
     inherit (flake.selfLib.data) stateVersion;
     username = lib.mkDefault flake.config.people.myself;
