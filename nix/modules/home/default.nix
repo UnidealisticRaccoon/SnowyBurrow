@@ -6,6 +6,7 @@
 { ezModules, flake, config, pkgs, lib, ... }:
 {
   imports = [
+    ezModules.git
     ezModules.direnv
   ];
 
