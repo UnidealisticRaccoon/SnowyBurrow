@@ -17,6 +17,7 @@
 
         inputs = with pkgs; [
           age
+          git
           sops
           terraform
         ];
