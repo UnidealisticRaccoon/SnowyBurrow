@@ -14,3 +14,7 @@ terraform {
 module "google" {
   source = "./modules/google"
 }
+
+module "oci" {
+  source = "./modules/oci"
+}
