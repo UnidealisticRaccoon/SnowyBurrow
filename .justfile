@@ -41,8 +41,8 @@ terraform-apply: (_terraform-init) && (_terraform-clean)
     terraform -chdir={{tfDir}} apply -auto-approve
 
 # destroy terraform config
-terraform-destroy: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} destroy
+terraform-destroy *args: (_terraform-init) && (_terraform-clean)
+    terraform -chdir={{tfDir}} destroy {{args}}
 
 # refresh terraform state
 terraform-refresh: (_terraform-init) && (_terraform-clean)
