@@ -18,3 +18,7 @@ module "google" {
 module "oci" {
   source = "./modules/oci"
 }
+
+module "tailscale" {
+  source = "./modules/tailscale"
+}
