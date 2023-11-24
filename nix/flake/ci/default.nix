@@ -18,7 +18,6 @@
         inputs = with pkgs; [
           age
           sops
-          just
           terraform
         ];
 
