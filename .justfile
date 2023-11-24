@@ -29,12 +29,12 @@ _terraform-clean:
     rm -rf {{tfDir}}/.terraform
 
 # show terraform state
-terraform-show: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} show
+terraform-show *args: (_terraform-init) && (_terraform-clean)
+    terraform -chdir={{tfDir}} show {{args}}
 
 # plan terraform config
-terraform-plan: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} plan
+terraform-plan *args: (_terraform-init) && (_terraform-clean)
+    terraform -chdir={{tfDir}} plan {{args}}
 
 # apply terraform config
 terraform-apply: (_terraform-init) && (_terraform-clean)
