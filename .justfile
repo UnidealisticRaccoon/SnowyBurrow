@@ -26,7 +26,7 @@ _terraform-init:
     terraform -chdir={{tfDir}} validate
 
 _terraform-clean:
-    cd {{infraDir}} && find -type f -not \( -name '*.tf' -or -name '.terraform.lock.hcl' \) -delete
+    rm -rf {{tfDir}}/.terraform
 
 # show terraform state
 terraform-show: (_terraform-init) && (_terraform-clean)
