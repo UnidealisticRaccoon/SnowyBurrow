@@ -10,6 +10,7 @@ lib.makeExtensible (selfLib: rec {
   flattenTree = import ./flatten-tree.nix { inherit lib; };
   rakeLeaves = import ./rake-leaves.nix { inherit inputs lib; };
   buildModuleList = import ./build-module-list.nix { inherit selfLib lib; };
+  makePackages = import ./make-packages.nix { inherit lib; };
 
   specialArgsFor = rec {
     common.flake = { inherit self inputs config lib selfLib; };
