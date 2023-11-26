@@ -17,16 +17,16 @@
 
     root = ./.;
     nixos = {
-      modulesDirectory = ../../modules/nixos;
-      configurationsDirectory = ../../hosts/nixos;
+      modulesDirectory = "${self}/nix/modules/nixos";
+      configurationsDirectory = "${self}/nix/hosts/nixos";
     };
     darwin = {
-      modulesDirectory = ../../modules/darwin;
-      configurationsDirectory = ../../hosts/darwin;
+      modulesDirectory = "${self}/nix/modules/darwin";
+      configurationsDirectory = "${self}/nix/hosts/darwin";
     };
     home = {
-      modulesDirectory = ../../modules/home;
-      configurationsDirectory = ../../users;
+      modulesDirectory = "${self}/nix/modules/home";
+      configurationsDirectory = "${self}/nix/users";
       users = {
         vscode = {
           standalone = {
