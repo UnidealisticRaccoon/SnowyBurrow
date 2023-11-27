@@ -10,7 +10,7 @@ lib.makeScope newScope (
     inherit (self) callPackage;
   in
   {
-    cockpit-podman = callPackage ./cockpit-podman { };
+    sources = callPackage ./_sources/generated.nix { };
 
     devPackages = lib.recurseIntoAttrs (callPackage ./dev-packages {
       inherit selfLib;
@@ -18,5 +18,6 @@ lib.makeScope newScope (
     });
 
     cockpit-machines = callPackage ./cockpit-machines { };
+    cockpit-podman = callPackage ./cockpit-podman { };
   }
 )
