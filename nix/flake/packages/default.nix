@@ -6,40 +6,31 @@
 { inputs, self, ... }: {
   perSystem = { system, self', pkgs, lib, ... }:
     let
-      config.allowUnfree = true;
+      setupNixpkgs = {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      setupPackages = {
+        inherit inputs;
+        selfLib = self.lib;
+      };
     in
     {
-      _module.args.pkgs = import inputs.nixpkgs {
-        inherit system config;
-      };
+      _module.args.pkgs = import inputs.nixpkgs setupNixpkgs;
 
       packages = inputs.flake-utils.lib.flattenTree (self'.legacyPackages);
 
-      legacyPackages = self.lib.makePackages pkgs ../../pkgs {
-        selfLib = self.lib;
-        inherit inputs;
-      };
+      legacyPackages = self.lib.makePackages pkgs ../../pkgs setupPackages;
 
       checks =
         let
-          pkgsStable = import inputs.nixpkgs-stable {
-            inherit system config;
-          };
-          pkgsLatest = import inputs.nixpkgs-latest {
-            inherit system config;
-          };
+          pkgsStable = import inputs.nixpkgs-stable setupNixpkgs;
+          pkgsLatest = import inputs.nixpkgs-latest setupNixpkgs;
         in
         inputs.flake-utils.lib.flattenTree {
           packages = lib.recurseIntoAttrs self'.legacyPackages;
-          packages-stable = lib.recurseIntoAttrs (self.lib.makePackages pkgsStable ../../pkgs {
-            selfLib = self.lib;
-            inherit inputs;
-
-          });
-          packages-latest = lib.recurseIntoAttrs (self.lib.makePackages pkgsLatest ../../pkgs {
-            selfLib = self.lib;
-            inherit inputs;
-          });
+          packages-stable = lib.recurseIntoAttrs (self.lib.makePackages pkgsStable ../../pkgs setupPackages);
+          packages-latest = lib.recurseIntoAttrs (self.lib.makePackages pkgsLatest ../../pkgs setupPackages);
         };
     };
 }
