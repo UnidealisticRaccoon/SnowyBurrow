@@ -6,4 +6,9 @@ let
 in
 {
   main = callPackage ./main { };
+  changes = callPackage ./changes { };
+  commit = callPackage ./commit { };
+  update = callPackage ./update {
+    inherit selfLib selfPackages;
+  };
 })

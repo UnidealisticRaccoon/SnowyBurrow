@@ -18,6 +18,9 @@ let
   merge = lib.fold lib.recursiveUpdate { };
   appNamesDict = merge [
     (trivial "nvfetcher/main")
+    (empty "nvfetcher/changes")
+    (empty "nvfetcher/commit")
+    (trivial "nvfetcher/update")
     (empty "cockpit-machines")
     (empty "cockpit-podman")
   ];

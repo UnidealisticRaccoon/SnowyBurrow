@@ -16,6 +16,7 @@ alias tfd := terraform-destroy
 alias tfr := terraform-refresh
 alias tfo := terraform-outputs
 alias nvfm := nvfetcher-main
+alias nvfu := nvfetcher-update
 
 [private]
 default:
@@ -53,5 +54,10 @@ terraform-refresh: (_terraform-init) && (_terraform-clean)
 terraform-outputs: (_terraform-init) && (_terraform-clean)
     terraform -chdir={{tfDir}} output
 
+# run nvfetcher/main app
 nvfetcher-main:
     nix run .#nvfetcher/main -- -o nix/pkgs/_sources
+
+# run nvfetcher/update app
+nvfetcher-update:
+    nix run .#nvfetcher/update

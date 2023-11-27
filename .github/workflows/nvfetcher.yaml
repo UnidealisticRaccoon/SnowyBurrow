@@ -1,0 +1,56 @@
+name: nvfetcher
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */1 * * *"
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: cachix/install-nix-action@v23
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - uses: cachix/cachix-action@v12
+        with:
+          name: procyon
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            nix/pkgs/_sources/.shake.database
+          key: ${{ runner.os }}-${{ hashFiles('nix/pkgs/nvfetcher/main/src/*') }}-${{ hashFiles('nix/pkgs/_sources/generated.nix') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ hashFiles('nix/pkgs/nvfetcher/main/src/*') }}-
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - run: |
+          cat > keyfile.toml <<EOF
+          [keys]
+          github = "${{ secrets.GITHUB_TOKEN }}"
+          EOF
+      - run: nix run .#nvfetcher/update
+      - uses: peter-evans/create-pull-request@v5
+        if: ${{ env.CHANGELOG != '' }}
+        id: cpr
+        with:
+          token: "${{ secrets.PAT_FOR_CREATE_PULL_REQUEST }}"
+          title: Automated update
+          body: |
+            ###### Changelog
+
+            ```text
+            ${{ env.CHANGELOG }}
+            ```
+          branch: "nvfetcher/update"
+          delete-branch: true

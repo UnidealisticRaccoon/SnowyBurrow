@@ -13,6 +13,8 @@ lib.makeExtensible (selfLib: rec {
   makePackages = import ./make-packages.nix { inherit lib; };
   appNames = import ./app-names.nix { inherit lib; };
   makeApps = import ./make-apps.nix { inherit lib; };
+  versionDiff = import ./version-diff.nix { inherit lib; };
+  getUpdateScripts = import ./get-update-scripts.nix { inherit lib; };
 
   specialArgsFor = rec {
     common.flake = { inherit self inputs config lib selfLib; };
