@@ -1,9 +1,9 @@
 cabal-version:      3.0
-name:               nvfetcher-self
+name:               nvfetcher-checker
 version:            0.1.0.0
 license:            MIT
 
-executable nvfetcher-self
+executable main
     main-is:          Main.hs
     build-depends:
         base
