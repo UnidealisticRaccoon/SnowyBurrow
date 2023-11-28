@@ -7,19 +7,17 @@
 {
   imports = [
     ezModules.git
+    ezModules.gpg
+    ezModules.ssh
     ezModules.direnv
     ezModules.nix-index
   ];
 
   nixpkgs.config.allowUnfree = true;
 
-  targets.genericLinux.enable = pkgs.stdenv.isLinux;
+  programs.home-manager.enable = true;
 
-  programs = {
-    ssh.enable = true;
-    gpg.enable = true;
-    home-manager.enable = true;
-  };
+  targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
   home = {
     inherit (flake.selfLib.data) stateVersion;
