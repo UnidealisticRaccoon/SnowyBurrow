@@ -8,6 +8,7 @@
   imports = [
     ezModules.git
     ezModules.direnv
+    ezModules.nix-index
   ];
 
   nixpkgs.config.allowUnfree = true;
