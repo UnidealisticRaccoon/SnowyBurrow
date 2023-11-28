@@ -2,7 +2,12 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ lib, ... }:
+{ pkgs, lib, ... }:
 {
-  home.username = lib.mkForce "vscode";
+  home = {
+    username = lib.mkForce "vscode";
+    packages = with pkgs; [
+      nil # nix LSP
+    ];
+  };
 }
