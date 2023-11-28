@@ -22,6 +22,8 @@ alias nxch := nix-check
 alias nxi := nix-io
 alias nxu := nix-update
 alias nxd := nix-dev
+alias nxbh := nix-build-home
+alias nxsh := nix-switch-home
 alias nxcl := nix-clean
 
 [private]
@@ -84,6 +86,14 @@ nix-update:
 # enter devshell
 nix-dev:
   nix develop
+
+# build home-manager activation package
+nix-build-home *home:
+  nix build .#homeConfigurations.{{home}}.activationPackage
+
+# activate home-manager profile
+nix-switch-home *home:
+  nix run .#homeConfigurations.{{home}}.activationPackage
 
 # remove build outputs
 nix-clean:
