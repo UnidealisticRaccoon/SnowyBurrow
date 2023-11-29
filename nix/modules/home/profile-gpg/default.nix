@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ ... }:
+{ config, ... }:
 {
   programs.gpg.enable = true;
 
@@ -12,6 +12,6 @@
     enable = true;
     enableSshSupport = true;
     enableExtraSocket = true;
-    pinentryFlavor = "gnome3";
+    pinentryFlavor = if config.xsession.enable then "gnome3" else "tty";
   };
 }
