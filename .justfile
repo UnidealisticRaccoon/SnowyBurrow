@@ -6,7 +6,11 @@
 infraDir := 'infrastructure'
 tfDir  := 'infrastructure/terraform'
 
-GOOGLE_CREDENTIALS := `sops -d secrets/infrastructure/terraform/google.json | tr -s '\n' ' '`
+GOOGLE_CREDENTIALS := if `echo $USER` == 'vscode' {
+  ``
+} else {
+  `sops -d secrets/infrastructure/terraform/google.json | tr -s '\n' ' '`
+}
 
 alias tfi := _terraform-init
 alias tfc := _terraform-clean
