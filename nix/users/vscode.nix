@@ -4,6 +4,8 @@
 
 { pkgs, lib, ... }:
 {
+  programs.bash.enable = true;
+
   home = {
     username = lib.mkForce "vscode";
     packages = with pkgs; [
