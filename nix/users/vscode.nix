@@ -6,6 +6,8 @@
 {
   programs.bash.enable = true;
 
+  services.gpg-agent.enable = lib.mkForce false;
+
   home = {
     username = lib.mkForce "vscode";
     packages = with pkgs; [
