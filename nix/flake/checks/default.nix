@@ -5,6 +5,7 @@
 
 { inputs, ... }: {
   imports = [
+    ./_home.nix
     inputs.pre-commit-hooks-nix.flakeModule
     inputs.flat-flake.flakeModules.flatFlake
   ];
