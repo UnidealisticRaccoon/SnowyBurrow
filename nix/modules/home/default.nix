@@ -6,11 +6,7 @@
 { ezModules, flake, config, pkgs, lib, ... }:
 {
   imports = [
-    ezModules.git
-    ezModules.gpg
-    ezModules.ssh
-    ezModules.direnv
-    ezModules.nix-index
+    ezModules.suite-core
   ];
 
   nixpkgs.config.allowUnfree = true;
