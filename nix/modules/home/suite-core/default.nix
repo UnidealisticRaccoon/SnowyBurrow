@@ -10,5 +10,6 @@
     ezModules.profile-gpg
     ezModules.profile-nix-index
     ezModules.profile-ssh
+    ezModules.profile-starship
   ];
 }
