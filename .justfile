@@ -6,10 +6,10 @@
 infraDir := 'infrastructure'
 tfDir  := 'infrastructure/terraform'
 
-export GOOGLE_BACKEND_CREDENTIALS := if `echo $USER` == 'vscode' {
+export TF_TOKEN_app_terraform_io := if `echo $USER` == 'vscode' {
   ``
 } else {
-  `sops -d secrets/infrastructure/terraform/google.json | tr -s '\n' ' '`
+  `sops -d --extract '["token"]' secrets/infrastructure/terraform/terraform.yaml`
 }
 
 alias tfi := _terraform-init
