@@ -6,7 +6,7 @@
 infraDir := 'infrastructure'
 tfDir  := 'infrastructure/terraform'
 
-GOOGLE_CREDENTIALS := if `echo $USER` == 'vscode' {
+export GOOGLE_BACKEND_CREDENTIALS := if `echo $USER` == 'vscode' {
   ``
 } else {
   `sops -d secrets/infrastructure/terraform/google.json | tr -s '\n' ' '`
