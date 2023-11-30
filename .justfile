@@ -32,43 +32,43 @@ alias nxcl := nix-clean
 
 [private]
 default:
-    @just --choose --unsorted --justfile {{justfile()}} --list-heading ''
+  @just --choose --unsorted --justfile {{justfile()}} --list-heading ''
 
 _terraform-init:
-    terraform -chdir={{tfDir}} fmt
-    terraform -chdir={{tfDir}} init
-    terraform -chdir={{tfDir}} validate
+  terraform -chdir={{tfDir}} fmt
+  terraform -chdir={{tfDir}} init
+  terraform -chdir={{tfDir}} validate
 
 _terraform-clean:
-    rm -rf {{tfDir}}/.terraform
+  rm -rf {{tfDir}}/.terraform
 
 # show terraform state
 terraform-show *args: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} show {{args}}
+  terraform -chdir={{tfDir}} show {{args}}
 
 # plan terraform config
 terraform-plan *args: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} plan {{args}}
+  terraform -chdir={{tfDir}} plan {{args}}
 
 # apply terraform config
 terraform-apply: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} apply -auto-approve
+  terraform -chdir={{tfDir}} apply -auto-approve
 
 # destroy terraform config
 terraform-destroy *args: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} destroy {{args}}
+  terraform -chdir={{tfDir}} destroy {{args}}
 
 # refresh terraform state
 terraform-refresh: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} refresh
+  terraform -chdir={{tfDir}} refresh
 
 # show terraform outputs
 terraform-outputs: (_terraform-init) && (_terraform-clean)
-    terraform -chdir={{tfDir}} output
+  terraform -chdir={{tfDir}} output
 
 # update packages with nvfetcher
 nvfetcher-update:
-    nix run .#devPackages/nvfetcher-self -- -o nix/pkgs/_sources
+  nix run .#devPackages/nvfetcher-self -- -o nix/pkgs/_sources
 
 # fmt files
 nix-fmt:
