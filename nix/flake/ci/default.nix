@@ -37,7 +37,7 @@
           readSecretString terraform-secret .ageKey > "$secretsDir/keys.txt"
           export SOPS_AGE_KEY_FILE=$secretsDir/keys.txt
           cp -r $FLAKE_REF/{infrastructure,secrets} $PWD
-          export GOOGLE_CREDENTIALS=$(sops -d $PWD/secrets/infrastructure/terraform/google.json | tr -s '\n' ' ')
+          export TF_TOKEN_app_terraform_io=$(sops -d --extract '["token"]' secrets/infrastructure/terraform/terraform.yaml)
         '';
 
         userSetupPhase = ''

@@ -5,9 +5,12 @@
 terraform {
   required_version = "~> 1.6.3"
 
-  backend "gcs" {
-    prefix = "workspaces"
-    bucket = "ant-de17fa6d"
+  cloud {
+    organization = "procyonidae"
+
+    workspaces {
+      name = "snowy-burrow"
+    }
   }
 }
 
