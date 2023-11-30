@@ -30,11 +30,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1700261309,
-        "narHash": "sha256-YaPfaNl8KSS0/tGKT6WO/UJ6xd/c4O13IrIERK0pFrM=",
+        "lastModified": 1700606599,
+        "narHash": "sha256-Guoclq1HJAQ67hkQMVDMVss8E4HHVEgB61e2nno8qNA=",
         "owner": "ehllie",
         "repo": "ez-configs",
-        "rev": "fd37acbb7db32e68c9fcf66a916eceb0b4754573",
+        "rev": "fa75b68c677d71aa17ec0efacd09aa0f69d5a4a3",
         "type": "github"
       },
       "original": {
@@ -300,7 +300,7 @@
       },
       "original": {
         "owner": "NixOS",
-        "ref": "release-23.05",
+        "ref": "nixos-23.11",
         "repo": "nixpkgs",
         "type": "github"
       }
