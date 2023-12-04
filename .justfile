@@ -51,8 +51,8 @@ terraform-plan *args: (_terraform-init) && (_terraform-clean)
   terraform -chdir={{tfDir}} plan {{args}}
 
 # apply terraform config
-terraform-apply: (_terraform-init) && (_terraform-clean)
-  terraform -chdir={{tfDir}} apply -auto-approve
+terraform-apply *args: (_terraform-init) && (_terraform-clean)
+  terraform -chdir={{tfDir}} apply -auto-approve {{args}}
 
 # destroy terraform config
 terraform-destroy *args: (_terraform-init) && (_terraform-clean)
