@@ -78,7 +78,7 @@ provider "registry.terraform.io/hashicorp/time" {
 
 provider "registry.terraform.io/oracle/oci" {
   version     = "5.21.0"
-  constraints = ">= 4.67.3, ~> 5.21.0"
+  constraints = "~> 5.21.0"
   hashes = [
     "h1:BDxb8hfWhQDuHi4iS2NosjgO6CI8LhSL57HFkZPxf0s=",
     "zh:10d7a231b19ee1a1e4c1e336dca6aa74f0c3ee2c196d0ba3507ff7b8a78b69e2",
