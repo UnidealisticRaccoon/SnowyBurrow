@@ -1,3 +1,3 @@
 {
-  "recommendations": ["pinage404.nix-extension-pack"]
+  "recommendations": ["hashicorp.terraform", "pinage404.nix-extension-pack"]
 }
