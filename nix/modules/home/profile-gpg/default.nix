@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ config, ... }:
+{ flake, config, ... }:
 {
   programs.gpg.enable = true;
 
@@ -13,5 +13,8 @@
     enableSshSupport = true;
     enableExtraSocket = true;
     pinentryFlavor = if config.xsession.enable then "gnome3" else "tty";
+    sshKeys = [
+      "${flake.config.people.users.${flake.config.people.myself}.keys.sshcontrol}"
+    ];
   };
 }
