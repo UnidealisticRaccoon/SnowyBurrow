@@ -42,6 +42,7 @@
 
     # flake modules
     flake-root.url = "github:srid/flake-root";
+    nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     ez-configs = {
       url = "github:ehllie/ez-configs";
