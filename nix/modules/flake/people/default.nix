@@ -17,6 +17,9 @@ let
         gpg = lib.mkOption {
           type = lib.types.str;
         };
+        sshcontrol = lib.mkOption {
+          type = lib.types.str;
+        };
         ssh = lib.mkOption {
           type = lib.types.str;
         };
@@ -54,6 +57,7 @@ in
         email = "me@ursuslotor.xyz";
         keys = {
           gpg = "2764AA78791D69DF7E8916D640802D0919B2FB7D";
+          sshcontrol = "6EE062284DC707753AFEA55664BE39978D8CFC29";
           ssh = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMLMCpAHL6U/68APRbekm/mzlBaRSNzi3GQzJYff0N69";
         };
       };
