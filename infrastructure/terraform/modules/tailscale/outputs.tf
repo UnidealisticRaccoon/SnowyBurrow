@@ -6,3 +6,8 @@ output "tailnet_key-r1e0p1" {
   sensitive = true
   value     = tailscale_tailnet_key.r1e0p1.key
 }
+
+output "tailnet_key-r1e1p1" {
+  sensitive = true
+  value     = tailscale_tailnet_key.r1e1p1.key
+}
