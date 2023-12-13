@@ -20,3 +20,17 @@ resource "tailscale_tailnet_key" "r1e0p1" {
     ]
   }
 }
+
+resource "tailscale_tailnet_key" "r1e1p1" {
+  reusable      = true
+  ephemeral     = true
+  preauthorized = true
+
+  tags = ["tag:infra"]
+
+  lifecycle {
+    replace_triggered_by = [
+      time_static.rotate_monthly
+    ]
+  }
+}
