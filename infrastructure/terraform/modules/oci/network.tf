@@ -100,6 +100,36 @@ resource "oci_core_security_list" "private" {
 # END: ***
 
 # BEGIN: ***
+# Security Group
+#
+
+resource "oci_core_network_security_group" "ssh" {
+  display_name   = "ssh"
+  vcn_id         = oci_core_vcn.default.id
+  compartment_id = data.sops_file.oci.data["tenancy_ocid"]
+}
+
+resource "oci_core_network_security_group_security_rule" "ssh_ingress" {
+  protocol                  = 6
+  stateless                 = true
+  direction                 = "INGRESS"
+  source                    = "0.0.0.0/0"
+  description               = "Allow SSH connections through port 22"
+  network_security_group_id = oci_core_network_security_group.ssh.id
+
+  tcp_options {
+    destination_port_range {
+      min = 22
+      max = 22
+    }
+  }
+}
+
+#
+# Security Group
+# END: ***
+
+# BEGIN: ***
 # Gateways
 #
 
@@ -147,26 +177,6 @@ resource "oci_core_default_security_list" "default" {
     protocol         = "all"
     destination      = local.anywhere_ipv6
     destination_type = "CIDR_BLOCK"
-  }
-
-  ingress_security_rules {
-    protocol = "6"
-    source   = local.anywhere
-
-    tcp_options {
-      min = 22
-      max = 22
-    }
-  }
-
-  ingress_security_rules {
-    protocol = "6"
-    source   = local.anywhere_ipv6
-
-    tcp_options {
-      min = 22
-      max = 22
-    }
   }
 
   ingress_security_rules {
