@@ -19,7 +19,8 @@ module "google" {
 }
 
 module "oci" {
-  source = "./modules/oci"
+  source                = "./modules/oci"
+  tailscale_tailnet_key = module.tailscale.tailnet_key-r1e0p1
 }
 
 module "tailscale" {
