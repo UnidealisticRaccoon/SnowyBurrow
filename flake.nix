@@ -48,6 +48,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+    };
     ez-configs = {
       url = "github:ehllie/ez-configs";
       inputs.nixpkgs.follows = "nixpkgs";
