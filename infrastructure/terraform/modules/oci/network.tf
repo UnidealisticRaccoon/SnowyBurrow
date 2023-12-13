@@ -103,6 +103,28 @@ resource "oci_core_security_list" "private" {
 # Security Group
 #
 
+resource "oci_core_network_security_group" "tailscale" {
+  display_name   = "tailscale"
+  vcn_id         = oci_core_vcn.default.id
+  compartment_id = data.sops_file.oci.data["tenancy_ocid"]
+}
+
+resource "oci_core_network_security_group_security_rule" "easy_nat" {
+  protocol                  = 17
+  stateless                 = true
+  direction                 = "INGRESS"
+  source                    = "0.0.0.0/0"
+  description               = "Tailscale IPv4 direct connections"
+  network_security_group_id = oci_core_network_security_group.tailscale.id
+
+  udp_options {
+    destination_port_range {
+      min = 41641
+      max = 41641
+    }
+  }
+}
+
 resource "oci_core_network_security_group" "ssh" {
   display_name   = "ssh"
   vcn_id         = oci_core_vcn.default.id
