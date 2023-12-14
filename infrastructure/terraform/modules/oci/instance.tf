@@ -5,9 +5,9 @@
 locals {
   ssh_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMLMCpAHL6U/68APRbekm/mzlBaRSNzi3GQzJYff0N69"
   name = {
-    arm_private = "oci-armsec"
-    amd_public  = "oci-amdpub"
-    amd_private = "oci-amdsec"
+    arm_0 = "oci-armcore"
+    amd_1 = "oci-amdcore"
+    amd_2 = "oci-amdside"
   }
   shape = {
     arm = "VM.Standard.A1.Flex"
@@ -48,10 +48,11 @@ data "oci_core_instances" "running" {
 # Instances
 #
 
-resource "oci_core_instance" "arm_private" {
+resource "oci_core_instance" "arm_0" {
+  count                               = 0
   is_pv_encryption_in_transit_enabled = true
   shape                               = local.shape.arm
-  display_name                        = local.name.arm_private
+  display_name                        = local.name.arm_0
   compartment_id                      = data.sops_file.oci.data["tenancy_ocid"]
   availability_domain                 = data.oci_identity_availability_domain.ad.name
 
@@ -74,20 +75,20 @@ resource "oci_core_instance" "arm_private" {
   metadata = {
     ssh_authorized_keys = local.ssh_key
     user_data = base64encode(templatefile("${path.module}/files/cloud-init.yaml", {
-      ENABLE_MOSH         = false
       TAILSCALE_EXIT_NODE = false
       SSH_AUTHORIZED_KEYS = local.ssh_key
-      INSTANCE_HOSTNAME   = local.name.arm_private
+      INSTANCE_HOSTNAME   = local.name.arm_0
       TAILSCALE_AUTHKEY   = var.tailscale_tailnet_key
       TAILSCALE_ROUTES    = ""
     }))
   }
 }
 
-resource "oci_core_instance" "amd_private" {
+resource "oci_core_instance" "amd_1" {
+  count                               = 0
   is_pv_encryption_in_transit_enabled = true
   shape                               = local.shape.amd
-  display_name                        = local.name.amd_private
+  display_name                        = local.name.amd_1
   compartment_id                      = data.sops_file.oci.data["tenancy_ocid"]
   availability_domain                 = data.oci_identity_availability_domain.ad.name
 
@@ -106,26 +107,26 @@ resource "oci_core_instance" "amd_private" {
   metadata = {
     ssh_authorized_keys = local.ssh_key
     user_data = base64encode(templatefile("${path.module}/files/cloud-init.yaml", {
-      ENABLE_MOSH         = false
       TAILSCALE_EXIT_NODE = false
       SSH_AUTHORIZED_KEYS = local.ssh_key
-      INSTANCE_HOSTNAME   = local.name.amd_private
+      INSTANCE_HOSTNAME   = local.name.amd_1
       TAILSCALE_AUTHKEY   = var.tailscale_tailnet_key
-      TAILSCALE_ROUTES    = "${oci_core_subnet.private.cidr_block},169.254.169.254/32"
+      TAILSCALE_ROUTES    = ""
     }))
   }
 }
 
-resource "oci_core_instance" "amd_public" {
+resource "oci_core_instance" "amd_2" {
+  count                               = 0
   is_pv_encryption_in_transit_enabled = true
   shape                               = local.shape.amd
-  display_name                        = local.name.amd_public
+  display_name                        = local.name.amd_2
   compartment_id                      = data.sops_file.oci.data["tenancy_ocid"]
   availability_domain                 = data.oci_identity_availability_domain.ad.name
 
   create_vnic_details {
-    assign_public_ip = true
-    subnet_id        = oci_core_subnet.public.id
+    assign_public_ip = false
+    subnet_id        = oci_core_subnet.private.id
     nsg_ids          = [oci_core_network_security_group.mosh.id]
   }
 
@@ -138,12 +139,11 @@ resource "oci_core_instance" "amd_public" {
   metadata = {
     ssh_authorized_keys = local.ssh_key
     user_data = base64encode(templatefile("${path.module}/files/cloud-init.yaml", {
-      ENABLE_MOSH         = true
       TAILSCALE_EXIT_NODE = true
       SSH_AUTHORIZED_KEYS = local.ssh_key
-      INSTANCE_HOSTNAME   = local.name.amd_public
+      INSTANCE_HOSTNAME   = local.name.amd_2
       TAILSCALE_AUTHKEY   = var.tailscale_tailnet_key
-      TAILSCALE_ROUTES    = "${oci_core_subnet.public.cidr_block},169.254.169.254/32"
+      TAILSCALE_ROUTES    = "${oci_core_subnet.private.cidr_block},169.254.169.254/32"
     }))
   }
 }
