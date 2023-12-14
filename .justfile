@@ -43,28 +43,28 @@ _terraform-clean:
   rm -rf {{tfDir}}/.terraform
 
 # show terraform state
-terraform-show *args: (_terraform-init) && (_terraform-clean)
+terraform-show *args:
   terraform -chdir={{tfDir}} show {{args}}
 
 # plan terraform config
-terraform-plan *args: (_terraform-init) && (_terraform-clean)
+terraform-plan *args:
   terraform -chdir={{tfDir}} plan {{args}}
 
 # apply terraform config
-terraform-apply *args: (_terraform-init) && (_terraform-clean)
-  terraform -chdir={{tfDir}} apply -auto-approve {{args}}
+terraform-apply *args:
+  terraform -chdir={{tfDir}} apply {{args}}
 
 # destroy terraform config
-terraform-destroy *args: (_terraform-init) && (_terraform-clean)
+terraform-destroy *args:
   terraform -chdir={{tfDir}} destroy {{args}}
 
 # refresh terraform state
-terraform-refresh: (_terraform-init) && (_terraform-clean)
+terraform-refresh:
   terraform -chdir={{tfDir}} refresh
 
 # show terraform outputs
-terraform-outputs: (_terraform-init) && (_terraform-clean)
-  terraform -chdir={{tfDir}} output
+terraform-outputs *args:
+  terraform -chdir={{tfDir}} output {{args}}
 
 # update packages with nvfetcher
 nvfetcher-update:
