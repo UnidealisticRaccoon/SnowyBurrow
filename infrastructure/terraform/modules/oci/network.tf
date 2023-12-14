@@ -125,7 +125,7 @@ resource "oci_core_network_security_group_security_rule" "easy_nat" {
   }
 }
 
-resource "oci_core_network_security_group" "ssh" {
+resource "oci_core_network_security_group" "mosh" {
   display_name   = "ssh"
   vcn_id         = oci_core_vcn.default.id
   compartment_id = data.sops_file.oci.data["tenancy_ocid"]
@@ -136,13 +136,29 @@ resource "oci_core_network_security_group_security_rule" "ssh_ingress" {
   stateless                 = true
   direction                 = "INGRESS"
   source                    = "0.0.0.0/0"
-  description               = "Allow SSH connections through port 22"
-  network_security_group_id = oci_core_network_security_group.ssh.id
+  description               = "Allow SSH connections through port 22666"
+  network_security_group_id = oci_core_network_security_group.mosh.id
 
   tcp_options {
     destination_port_range {
-      min = 22
-      max = 22
+      min = 22666
+      max = 22666
+    }
+  }
+}
+
+resource "oci_core_network_security_group_security_rule" "mosh_ingress" {
+  protocol                  = 17
+  stateless                 = true
+  direction                 = "INGRESS"
+  source                    = "0.0.0.0/0"
+  description               = "Allow UDP connections from the 60000-61000 range"
+  network_security_group_id = oci_core_network_security_group.mosh.id
+
+  udp_options {
+    destination_port_range {
+      min = 60000
+      max = 61000
     }
   }
 }
