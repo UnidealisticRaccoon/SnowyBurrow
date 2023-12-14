@@ -17,3 +17,7 @@ creation_rules:
           - *user_procyon
         age:
           - *ci_hercules
+  - path_regex: secrets/nix/services/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - pgp:
+          - *user_procyon
