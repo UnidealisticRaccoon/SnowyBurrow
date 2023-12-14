@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: MIT
 
 { inputs, ... }: {
-  perSystem = { self', config, pkgs, lib, ... }:
+  perSystem = { self', inputs', config, pkgs, lib, ... }:
     {
       checks = inputs.flake-utils.lib.flattenTree {
         devShells = lib.recurseIntoAttrs self'.devShells;
@@ -31,6 +31,7 @@
 
           # Infra
           terraform
+          inputs'.deploy-rs.packages.deploy-rs
 
           # Misc
           jq
