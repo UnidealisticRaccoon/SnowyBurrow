@@ -10,6 +10,8 @@
     flake.inputs.nur.hmModules.nur
   ];
 
+  fonts.fontconfig.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
