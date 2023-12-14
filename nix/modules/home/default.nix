@@ -7,6 +7,7 @@
 {
   imports = [
     ezModules.suite-core
+    flake.inputs.nur.hmModules.nur
   ];
 
   nixpkgs.config.allowUnfree = true;
