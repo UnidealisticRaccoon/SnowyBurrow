@@ -9,6 +9,7 @@ heuristic = true
 
 [os]
 disabled = false
+format = "on [($name )]($style)"
 
 [time]
 disabled = false
