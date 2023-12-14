@@ -27,14 +27,6 @@
     home = {
       modulesDirectory = "${self}/nix/modules/home";
       configurationsDirectory = "${self}/nix/users";
-      users = {
-        vscode = {
-          standalone = {
-            enable = true;
-            pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
-          };
-        };
-      };
     };
   };
 }
