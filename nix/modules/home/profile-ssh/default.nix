@@ -8,4 +8,9 @@
     enable = true;
     includes = [ "config.d/*" ];
   };
+
+  home.file.".ssh/config.d/managed".text = ''
+    Host *
+      ControlPath ~/.ssh/%C
+  '';
 }
