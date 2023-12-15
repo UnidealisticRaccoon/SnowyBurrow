@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ ezModules, ... }:
+{ osConfig, ezModules, ... }:
 {
   imports = [
     ezModules.profile-direnv
@@ -12,4 +12,10 @@
     ezModules.profile-ssh
     ezModules.profile-starship
   ];
+
+  programs = {
+    bash.enable = true;
+    zsh.enable = osConfig.programs.zsh.enable;
+    fish.enable = osConfig.programs.fish.enable;
+  };
 }
