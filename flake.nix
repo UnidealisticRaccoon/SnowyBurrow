@@ -92,6 +92,16 @@
       inputs.flake-compat.follows = "flake-compat";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.base16.follows = "base16";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.base16-fish.follows = "base16-fish";
+      inputs.base16-helix.follows = "base16-helix";
+      inputs.base16-kitty.follows = "base16-kitty";
+    };
     flat-flake = {
       url = "github:linyinfeng/flat-flake";
       inputs.crane.follows = "crane";
@@ -107,6 +117,14 @@
     # libraries
     systems.url = "github:nix-systems/default";
     nixpkgs-lib.url = "github:nix-community/nixpkgs.lib";
+    base16 = {
+      url = "github:SenchoPens/base16.nix";
+      inputs.fromYaml.follows = "fromYaml";
+    };
+    fromYaml = {
+      flake = false;
+      url = "github:SenchoPens/fromYaml";
+    };
     crane = {
       url = "github:ipetkov/crane";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -122,6 +140,18 @@
     gitignore-nix = {
       url = "github:hercules-ci/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    base16-fish = {
+      url = "github:tomyun/base16-fish";
+      flake = false;
+    };
+    base16-helix = {
+      url = "github:tinted-theming/base16-helix";
+      flake = false;
+    };
+    base16-kitty = {
+      url = "github:kdrag0n/base16-kitty";
+      flake = false;
     };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
