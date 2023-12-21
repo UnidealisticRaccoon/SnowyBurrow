@@ -23,6 +23,8 @@
         ];
 
         packages = with pkgs; [
+          nil
+
           # Legal
           reuse
 
