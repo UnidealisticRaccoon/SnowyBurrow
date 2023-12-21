@@ -15,7 +15,7 @@
   ezConfigs = {
     inherit (self.lib) globalArgs;
 
-    root = ./.;
+    root = "${self}/.";
     nixos = {
       modulesDirectory = "${self}/nix/modules/nixos";
       configurationsDirectory = "${self}/nix/hosts/nixos";
