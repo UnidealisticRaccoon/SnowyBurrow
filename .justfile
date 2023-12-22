@@ -76,7 +76,7 @@ nix-fmt:
 
 # check flake
 nix-check: (nix-fmt)
-  nix flake check
+  nix flake check -L
 
 # print inputs and outputs
 nix-io:
