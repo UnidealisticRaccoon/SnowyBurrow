@@ -172,6 +172,8 @@
         selfLib = import ./nix/lib { inherit self inputs config pkgs lib; };
       in
       {
+        debug = true;
+
         flake.lib = selfLib;
 
         imports = selfLib.buildModuleList ./nix/flake;
