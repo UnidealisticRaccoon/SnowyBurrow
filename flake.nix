@@ -1,5 +1,5 @@
 {
-  description = "Personal Nix Config: powered by flake-parts";
+  description = "parts of my systems: featuring IaC, custom packages etc";
 
   nixConfig = {
     extra-substituters = [

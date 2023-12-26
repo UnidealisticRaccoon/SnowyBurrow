@@ -1,6 +1,6 @@
 # Snowy Burrow
 
-> Personal Nix Config: powered by [flake-parts][flake-parts] [^1]
+> [parts][flake-parts] of my systems: featuring [IaC][terraform], [custom packages][NUR/procyon] etc [^1]
 
 [![Cachix][Cachix badge]][Cachix link] [![CI][CI badge]][CI link] [![Conventional Commits][Conventional Commits badge]][Conventional Commits link] [![REUSE][REUSE badge]][REUSE compliance]
 
@@ -11,6 +11,8 @@ _What licenses are used?_ &rarr; [`./.reuse/dep5`][Project licensing].
 _And the usual copies?_ &rarr; [`./LICENSES`][Project licenses].
 
 [flake-parts]: https://flake.parts
+[terraform]: https://github.com/hashicorp/terraform
+[NUR/procyon]: https://nur.nix-community.org/repos/procyon
 [Cachix badge]: https://img.shields.io/badge/cachix-procyon-white.svg
 [Cachix link]: https://procyon.cachix.org
 [CI badge]: https://github.com/UnidealisticRaccoon/SnowyBurrow/actions/workflows/ci.yaml/badge.svg
@@ -23,4 +25,4 @@ _And the usual copies?_ &rarr; [`./LICENSES`][Project licenses].
 [Project licensing]: https://github.com/UnidealisticRaccoon/SnowyBurrow/blob/main/.reuse/dep5
 [Project licenses]: https://github.com/UnidealisticRaccoon/SnowyBurrow/tree/main/LICENSES
 
-[^1]: Also powered by many settings from fellow `.nix` users. I tried to give credit as much as possible annotating the files with [REUSE][REUSE].
+[^1]: Also featuring many settings borrowed from fellow `.nix` users. I tried to give credit as much as possible annotating the files with [REUSE][REUSE].
