@@ -4,7 +4,7 @@
 
 [![Cachix][Cachix badge]][Cachix link] [![CI][CI badge]][CI link] [![Conventional Commits][Conventional Commits badge]][Conventional Commits link] [![REUSE][REUSE badge]][REUSE compliance]
 
-## Licenses
+## 📄 Licenses
 
 _What licenses are used?_ &rarr; [`./.reuse/dep5`][Project licensing].
 
