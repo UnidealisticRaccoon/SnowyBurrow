@@ -24,6 +24,7 @@
 
       programs = {
         shfmt.enable = true;
+        hclfmt.enable = true;
         prettier.enable = true;
         shellcheck.enable = true;
         nixpkgs-fmt.enable = true;
