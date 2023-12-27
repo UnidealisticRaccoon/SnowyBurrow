@@ -1,0 +1,12 @@
+builds:
+  exclude:
+    - "checks.*.packages-stable/devPackages/nvfetcher-self"
+    - "checks.*.packages-latest/devPackages/nvfetcher-self"
+    - "checks.*.packages-unstable/devPackages/nvfetcher-self"
+    - "checks.*.nixosConfigurations/bootstrap"
+    - "nixosConfigurations.bootstrap"
+  include:
+    - "checks.*.*"
+    - "devShells.*.*"
+    - "homeConfigurations.*"
+    - "nixosConfigurations.*"
