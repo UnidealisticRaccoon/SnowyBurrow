@@ -20,5 +20,7 @@ lib.makeScope newScope (
     cockpit-machines = callPackage ./cockpit-machines { };
 
     devPackages = lib.recurseIntoAttrs (recursiveApps ./dev-packages);
+
+    wallpapers = lib.recurseIntoAttrs (recursiveApps ./wallpapers);
   }
 )
