@@ -4,14 +4,14 @@
   nixConfig = {
     extra-substituters = [
       # default
-      "https://cache.garnix.io"
-      "https://cachix.cachix.org"
-      "https://procyon.cachix.org"
+      "https://cache.garnix.io?priority=500"
+      "https://cachix.cachix.org?priority=200"
+      "https://procyon.cachix.org?priority=100"
 
       # from inputs
-      "https://linyinfeng.cachix.org"
-      "https://nix-community.cachix.org"
-      "https://pre-commit-hooks.cachix.org"
+      "https://linyinfeng.cachix.org?priority=300"
+      "https://nix-community.cachix.org?priority=200"
+      "https://pre-commit-hooks.cachix.org?priority=400"
     ];
     extra-trusted-public-keys = [
       # default
