@@ -165,6 +165,14 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
+    # packages
+    nil = {
+      url = "github:oxalica/nil";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
+
     # compatibility layer
     flake-compat = {
       flake = false;
