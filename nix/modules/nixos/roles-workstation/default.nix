@@ -8,7 +8,6 @@
     ezModules.audio-pipewire
     ezModules.profile-fonts
     ezModules.profile-gnome
-    ezModules.profile-stylix
   ];
 
   documentation.nixos.enable = false;
