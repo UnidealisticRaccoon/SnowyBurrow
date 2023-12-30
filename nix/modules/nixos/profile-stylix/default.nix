@@ -24,13 +24,7 @@ in
       name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
     };
-    opacity = {
-      terminal = 0.75;
-      # FIXME: enable on GNOME?
-      # popups = 0.50;
-      # desktop = 0.90;
-      # applications = 0.90;
-    };
+    opacity.terminal = 0.75;
     fonts = {
       # TODO: find alternative
       serif = {
