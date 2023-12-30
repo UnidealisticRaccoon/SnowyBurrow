@@ -7,7 +7,11 @@
 let
   polarity = "dark";
   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-  image = "${flake.self.packages.${pkgs.system}."wallpapers/default"}/dimmed.png";
+  image = "${flake.self.packages.${pkgs.system}."wallpapers/default".override {
+    wallpaperFill = "#1e1e2e";
+    wallpaperColorize = "75%";
+    wallpaperParams = "-10,0";
+  }}/dimmed.png";
 in
 {
   imports = [ flake.inputs.stylix.nixosModules.stylix ];
