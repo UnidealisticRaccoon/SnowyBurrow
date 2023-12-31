@@ -4,7 +4,9 @@
 
 [![CI][CI badge]][CI link] [![Conventional Commits][Conventional Commits badge]][Conventional Commits link] [![REUSE][REUSE badge]][REUSE compliance]
 
-> [parts][flake-parts] of my systems: featuring [IaC][terraform], [custom packages][NUR/procyon] etc [^1]
+[![Catppuccin][Catppuccin badge]][Catppuccin link]
+
+> [parts][flake-parts] of my systems: featuring [unixporn][Catppuccin link], [IaC][terraform], [custom packages][NUR/procyon] etc [^1]
 
 </div>
 
@@ -25,6 +27,8 @@ _And the usual copies?_ &rarr; [`./LICENSES`][Project licenses].
 [NUR/procyon]: https://nur.nix-community.org/repos/procyon
 [CI badge]: https://img.shields.io/github/actions/workflow/status/UnidealisticRaccoon/SnowyBurrow/ci.yaml?label=CI&color=a6e3a1&labelColor=313244&style=for-the-badge&logo=github&logoColor=a6e3a1
 [CI link]: https://github.com/UnidealisticRaccoon/SnowyBurrow/actions/workflows/ci.yaml
+[Catppuccin badge]: https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png
+[Catppuccin link]: https://github.com/catppuccin
 [Conventional Commits badge]: https://img.shields.io/badge/1.0.0-blue?label=Conventional%20Commits&color=eba0ac&labelColor=313244&style=for-the-badge&logo=github&logoColor=eba0ac
 [Conventional Commits link]: https://conventionalcommits.org
 [REUSE]: https://reuse.software
