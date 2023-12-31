@@ -1,4 +1,4 @@
-# Snowy Burrow
+# ❄ Snowy️ Burrow 🦝
 
 > [parts][flake-parts] of my systems: featuring [IaC][terraform], [custom packages][NUR/procyon] etc [^1]
 
