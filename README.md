@@ -2,6 +2,8 @@
 
 # ❄ Snowy️ Burrow 🦝
 
+[![Stargazers][Stargazers badge]][Stargazers link] [![Pull Requests][Pull Requests badge]][Pull Requests link] [![Issues][Issues badge]][Issues link]
+
 [![CI][CI badge]][CI link] [![Conventional Commits][Conventional Commits badge]][Conventional Commits link] [![REUSE][REUSE badge]][REUSE compliance]
 
 [![Catppuccin][Catppuccin badge]][Catppuccin link]
@@ -25,6 +27,12 @@ _And the usual copies?_ &rarr; [`./LICENSES`][Project licenses].
 [flake-parts]: https://flake.parts
 [terraform]: https://github.com/hashicorp/terraform
 [NUR/procyon]: https://nur.nix-community.org/repos/procyon
+[Stargazers badge]: https://img.shields.io/github/stars/UnidealisticRaccoon/SnowyBurrow?color=f9e2af&labelColor=313244&style=for-the-badge&logo=starship&logoColor=f9e2af
+[Stargazers link]: https://github.com/UnidealisticRaccoon/SnowyBurrow/stargazers
+[Pull Requests badge]: https://img.shields.io/github/issues-pr-raw/UnidealisticRaccoon/SnowyBurrow?label=Pull%20Requests&color=89b4fa&labelColor=313244&style=for-the-badge&logo=starship&logoColor=89b4fa
+[Pull Requests link]: https://github.com/UnidealisticRaccoon/SnowyBurrow/pulls
+[Issues badge]: https://img.shields.io/github/issues/UnidealisticRaccoon/SnowyBurrow?color=fab387&labelColor=313244&style=for-the-badge&logo=starship&logoColor=fab387
+[Issues link]: https://github.com/UnidealisticRaccoon/SnowyBurrow/issues
 [CI badge]: https://img.shields.io/github/actions/workflow/status/UnidealisticRaccoon/SnowyBurrow/ci.yaml?label=CI&color=a6e3a1&labelColor=313244&style=for-the-badge&logo=github&logoColor=a6e3a1
 [CI link]: https://github.com/UnidealisticRaccoon/SnowyBurrow/actions/workflows/ci.yaml
 [Catppuccin badge]: https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png
