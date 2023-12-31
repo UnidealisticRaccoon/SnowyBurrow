@@ -26,7 +26,7 @@ _And the usual copies?_ &rarr; [`./LICENSES`][Project licenses].
 [Conventional Commits badge]: https://img.shields.io/badge/1.0.0-blue?label=Conventional%20Commits&color=eba0ac&labelColor=313244&style=for-the-badge&logo=github&logoColor=eba0ac
 [Conventional Commits link]: https://conventionalcommits.org
 [REUSE]: https://reuse.software
-[REUSE badge]: https://api.reuse.software/badge/github.com/UnidealisticRaccoon/SnowyBurrow
+[REUSE badge]: https://img.shields.io/reuse/compliance/github.com/UnidealisticRaccoon/SnowyBurrow?label=REUSE&color=cba6f7&labelColor=313244&style=for-the-badge&logo=github&logoColor=cba6f7
 [REUSE compliance]: https://api.reuse.software/info/github.com/UnidealisticRaccoon/SnowyBurrow
 [Mic92]: https://github.com/Mic92
 [Mic92/sops-nix]: https://github.com/Mic92/sops-nix
