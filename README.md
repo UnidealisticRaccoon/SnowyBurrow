@@ -23,7 +23,7 @@ _And the usual copies?_ &rarr; [`./LICENSES`][Project licenses].
 [Cachix link]: https://procyon.cachix.org
 [CI badge]: https://github.com/UnidealisticRaccoon/SnowyBurrow/actions/workflows/ci.yaml/badge.svg
 [CI link]: https://github.com/UnidealisticRaccoon/SnowyBurrow/actions/workflows/ci.yaml
-[Conventional Commits badge]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white
+[Conventional Commits badge]: https://img.shields.io/badge/1.0.0-blue?label=Conventional%20Commits&color=eba0ac&labelColor=313244&style=for-the-badge&logo=github&logoColor=eba0ac
 [Conventional Commits link]: https://conventionalcommits.org
 [REUSE]: https://reuse.software
 [REUSE badge]: https://api.reuse.software/badge/github.com/UnidealisticRaccoon/SnowyBurrow
