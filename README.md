@@ -1,9 +1,12 @@
+<div align="center">
+
 # ❄ Snowy️ Burrow 🦝
 
 [![CI][CI badge]][CI link] [![Conventional Commits][Conventional Commits badge]][Conventional Commits link] [![REUSE][REUSE badge]][REUSE compliance]
 
 > [parts][flake-parts] of my systems: featuring [IaC][terraform], [custom packages][NUR/procyon] etc [^1]
 
+</div>
 
 ## ❤️ Special Thanks
 
