@@ -29,4 +29,4 @@ jobs:
         with:
           extra-conf: ${{ env.nix-conf }}
       - uses: DeterminateSystems/magic-nix-cache-action@v2
-      - run: nix flake check '${{ env.flake }}'
+      - run: nix flake check -L '${{ env.flake }}'
