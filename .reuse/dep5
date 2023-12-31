@@ -11,6 +11,10 @@ Files: .github/* .vscode/* .devcontainer/devcontainer.json .envrc garnix.yaml .g
 Copyright: 2023 Unidealistic Raccoon <procyon@secureninja.maskmy.id>
 License: CC0-1.0
 
-Files: nix/pkgs/dev-packages/*
+Files: nix/pkgs/dev-packages/* nix/templates/rust/default.nix
 Copyright: 2023 Lin Yinfeng <lin.yinfeng@outlook.com>
+License: MIT
+
+Files: nix/templates/rust/flake.nix
+Copyright: 2023 Ivan Petkov <ivanppetkov@gmail.com>
 License: MIT
