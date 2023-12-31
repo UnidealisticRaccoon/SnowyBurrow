@@ -14,7 +14,6 @@ env:
   nix-conf: |-
     max-jobs = auto
     accept-flake-config = true
-    builders-use-substitutes = true
 
 jobs:
   reuse:
