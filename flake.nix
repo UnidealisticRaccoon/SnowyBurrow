@@ -10,6 +10,7 @@
       "https://numtide.cachix.org?priority=300"
 
       # from inputs
+      "https://helix.cachix.org"
       "https://linyinfeng.cachix.org?priority=300"
       "https://nix-community.cachix.org?priority=200"
       "https://pre-commit-hooks.cachix.org?priority=400"
@@ -22,6 +23,7 @@
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
 
       # from inputs
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       "linyinfeng.cachix.org-1:sPYQXcNrnCf7Vr7T0YmjXz5dMZ7aOKG3EqLja0xr9MM="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
@@ -138,6 +140,13 @@
     # packages
     nil = {
       url = "github:oxalica/nil";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.crane.follows = "crane";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.rust-overlay.follows = "rust-overlay";

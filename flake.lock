@@ -241,6 +241,35 @@
         "type": "github"
       }
     },
+    "helix": {
+      "inputs": {
+        "crane": [
+          "crane"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": [
+          "rust-overlay"
+        ]
+      },
+      "locked": {
+        "lastModified": 1703879161,
+        "narHash": "sha256-TNEsdsaCG1+PvGINrV/zw7emzwpfWiml4b77l2n5UEI=",
+        "owner": "helix-editor",
+        "repo": "helix",
+        "rev": "85fce2f5b6c9f35ab9d3361f3933288a28db83d4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "helix-editor",
+        "repo": "helix",
+        "type": "github"
+      }
+    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": [
@@ -491,6 +520,7 @@
         "flat-flake": "flat-flake",
         "gitignore-nix": "gitignore-nix",
         "haumea": "haumea",
+        "helix": "helix",
         "hercules-ci-effects": "hercules-ci-effects",
         "home-manager": "home-manager",
         "nil": "nil",
