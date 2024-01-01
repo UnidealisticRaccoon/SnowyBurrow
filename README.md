@@ -20,6 +20,14 @@ fn screenshots() {
 }
 ```
 
+## 📦 Contents
+
+```rust
+fn features() {
+  todo!()
+}
+```
+
 ## ❤️ Special Thanks
 
 - **[@Mic92][Mic92]**: **secrets** `provisioning` with _[sops-nix][Mic92/sops-nix]_
