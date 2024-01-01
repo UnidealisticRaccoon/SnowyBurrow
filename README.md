@@ -12,6 +12,14 @@
 
 </div>
 
+## 🌟 Showcase
+
+```rust
+fn screenshots() {
+  todo!()
+}
+```
+
 ## ❤️ Special Thanks
 
 - **[@Mic92][Mic92]**: **secrets** `provisioning` with _[sops-nix][Mic92/sops-nix]_
