@@ -14,6 +14,7 @@
     ezModules.profile-gpg
     ezModules.profile-just
     ezModules.profile-nix-index
+    ezModules.profile-pass
     ezModules.profile-ssh
     ezModules.profile-starship
     ezModules.profile-yazi
