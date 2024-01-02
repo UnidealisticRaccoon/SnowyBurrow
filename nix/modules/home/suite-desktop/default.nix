@@ -2,6 +2,11 @@
 #
 # SPDX-License-Identifier: MIT
 
+{ ezModules, ... }:
 {
+  imports = [
+    ezModules.profile-kitty
+  ];
+
   xsession.enable = true;
 }
