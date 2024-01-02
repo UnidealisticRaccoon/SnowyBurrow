@@ -6,6 +6,7 @@
 {
   imports = [
     ezModules.profile-kitty
+    ezModules.profile-chrome
   ];
 
   xsession.enable = true;
