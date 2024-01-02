@@ -10,7 +10,7 @@ right_format='$nix_shell'
 
 [os]
 disabled = false
-format = "on [($name )]($style)"
+format = 'on [$name](bold yellow) '
 
 [time]
 disabled = false
