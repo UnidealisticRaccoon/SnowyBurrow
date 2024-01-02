@@ -4,8 +4,9 @@
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
-[nix_shell]
-heuristic = true
+format = '$all'
+
+right_format='$nix_shell'
 
 [os]
 disabled = false
@@ -14,3 +15,9 @@ format = "on [($name )]($style)"
 [time]
 disabled = false
 utc_time_offset = "-3"
+
+[nix_shell]
+format = '$state '
+pure_msg = '[  pure \[$name\]](green)'
+impure_msg = '[  impure \[$name\]](red)'
+unknown_msg = '[  unknown \[$name\]](yellow)'
