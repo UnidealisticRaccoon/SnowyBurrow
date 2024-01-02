@@ -10,6 +10,9 @@
   ];
 
   home.packages = with pkgs; [
+    typst
+    taplo
+    marksman
     hyfetch
     asciinema
   ];
