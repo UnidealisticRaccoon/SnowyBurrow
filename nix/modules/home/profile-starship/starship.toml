@@ -16,6 +16,10 @@ format = 'on [$name](bold yellow) '
 disabled = false
 utc_time_offset = "-3"
 
+[shell]
+disabled = false
+format = 'with [$indicator](bold yellow) '
+
 [nix_shell]
 format = '$state '
 pure_msg = '[  pure \[$name\]](green)'
