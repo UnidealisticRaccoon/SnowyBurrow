@@ -12,6 +12,7 @@
     ezModules.profile-fzf
     ezModules.profile-git
     ezModules.profile-gpg
+    ezModules.profile-helix
     ezModules.profile-just
     ezModules.profile-nix-index
     ezModules.profile-pass
