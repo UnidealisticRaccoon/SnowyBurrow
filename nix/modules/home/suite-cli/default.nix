@@ -15,5 +15,6 @@
     ezModules.profile-ssh
     ezModules.profile-starship
     ezModules.profile-yazi
+    ezModules.profile-zoxide
   ];
 }
