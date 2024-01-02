@@ -6,6 +6,7 @@
 { ezModules, pkgs, lib, ... }:
 {
   imports = [
+    ezModules.profile-bat
     ezModules.profile-direnv
     ezModules.profile-git
     ezModules.profile-gpg
