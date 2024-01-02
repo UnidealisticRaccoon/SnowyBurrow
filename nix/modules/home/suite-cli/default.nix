@@ -8,6 +8,7 @@
   imports = [
     ezModules.profile-bat
     ezModules.profile-direnv
+    ezModules.profile-eza
     ezModules.profile-git
     ezModules.profile-gpg
     ezModules.profile-nix-index
