@@ -2,8 +2,12 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ pkgs, ... }:
+{ ezModules, pkgs, ... }:
 {
+  imports = [
+    ezModules.profile-fish
+  ];
+
   home.packages = with pkgs; [
     hyfetch
     asciinema
