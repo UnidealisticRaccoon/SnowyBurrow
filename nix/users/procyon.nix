@@ -5,6 +5,7 @@
 { ezModules, pkgs, ... }:
 {
   imports = [
+    ezModules.suite-desktop
     ezModules.profile-fish
   ];
 
