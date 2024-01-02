@@ -5,6 +5,7 @@
 { ezModules, ... }:
 {
   imports = [
+    ezModules.profile-gnome
     ezModules.profile-kitty
     ezModules.profile-chrome
     ezModules.profile-spotify
