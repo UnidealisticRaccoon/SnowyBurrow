@@ -42,6 +42,7 @@ in
     "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
     "org/gnome/desktop/wm/preferences".button-layout = "close,maximize,minimize:appmenu";
     "org/gnome/desktop/interface" = {
+      enable-hot-corners = true;
       color-scheme = "prefer-dark";
     };
     "org/gnome/desktop/background" =
