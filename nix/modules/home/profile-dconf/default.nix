@@ -22,8 +22,8 @@ in
   home.packages = gnomeExtensions;
 
   dconf.settings = {
-    # Extensions
     "org/gnome/shell" = {
+      favorite-apps = [ "google-chrome.desktop" "org.gnome.Nautilus.desktop" "kitty.desktop" ];
       disabled-extensions = [ ];
       enabled-extensions =
         (map (extension: extension.extensionUuid) gnomeExtensions) ++ [
