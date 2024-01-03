@@ -22,6 +22,12 @@ in
   home.packages = gnomeExtensions;
 
   dconf.settings = {
+    "org/gnome/mutter" = {
+      edge-tiling = true;
+      dynamic-workspaces = true;
+      workspaces-only-on-primary = true;
+    };
+
     "org/gnome/shell" = {
       favorite-apps = [ "google-chrome.desktop" "org.gnome.Nautilus.desktop" "kitty.desktop" ];
       disabled-extensions = [ ];
