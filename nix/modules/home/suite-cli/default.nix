@@ -17,6 +17,7 @@
     ezModules.profile-just
     ezModules.profile-nix-index
     ezModules.profile-pass
+    ezModules.profile-ripgrep
     ezModules.profile-ssh
     ezModules.profile-starship
     ezModules.profile-yazi
