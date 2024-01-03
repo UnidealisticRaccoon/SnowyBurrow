@@ -24,4 +24,12 @@
     ezModules.profile-yazi
     ezModules.profile-zoxide
   ];
+
+  home.packages = lib.attrValues {
+    inherit (pkgs)
+      taplo
+      typst
+      marksman
+      ;
+  };
 }

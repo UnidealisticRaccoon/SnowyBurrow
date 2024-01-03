@@ -2,17 +2,10 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ ezModules, pkgs, ... }:
+{ ezModules, ... }:
 {
   imports = [
     ezModules.suite-desktop
     ezModules.profile-fish
-  ];
-
-  home.packages = with pkgs; [
-    typst
-    taplo
-    marksman
-    asciinema
   ];
 }
