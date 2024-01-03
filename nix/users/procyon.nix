@@ -13,7 +13,6 @@
     typst
     taplo
     marksman
-    hyfetch
     asciinema
   ];
 }

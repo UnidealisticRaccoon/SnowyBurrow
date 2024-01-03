@@ -13,6 +13,7 @@
     ezModules.profile-git
     ezModules.profile-gpg
     ezModules.profile-helix
+    ezModules.profile-hyfetch
     ezModules.profile-just
     ezModules.profile-nix-index
     ezModules.profile-pass
