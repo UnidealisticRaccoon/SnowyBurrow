@@ -41,6 +41,9 @@ in
 
     "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
     "org/gnome/desktop/wm/preferences".button-layout = "close,maximize,minimize:appmenu";
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
     "org/gnome/desktop/background" =
       let
         wallpaper = flake.self.packages.${pkgs.system}."wallpapers/default".override {
