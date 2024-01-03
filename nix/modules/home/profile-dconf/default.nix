@@ -33,6 +33,7 @@ in
     };
     "org/gnome/shell/extensions/user-theme".name = config.gtk.theme.name;
 
+    "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
     "org/gnome/desktop/background" =
       let
         wallpaper = flake.self.packages.${pkgs.system}."wallpapers/default".override {
