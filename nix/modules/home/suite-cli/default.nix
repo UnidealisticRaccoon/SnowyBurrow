@@ -14,6 +14,7 @@
     ezModules.profile-gpg
     ezModules.profile-helix
     ezModules.profile-hyfetch
+    ezModules.profile-jq
     ezModules.profile-just
     ezModules.profile-nix-index
     ezModules.profile-pass
