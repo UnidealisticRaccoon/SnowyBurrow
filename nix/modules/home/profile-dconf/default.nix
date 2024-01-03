@@ -22,6 +22,11 @@ in
   home.packages = gnomeExtensions;
 
   dconf.settings = {
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
+      night-light-schedule-automatic = true;
+    };
+
     "org/gnome/mutter" = {
       edge-tiling = true;
       dynamic-workspaces = true;
