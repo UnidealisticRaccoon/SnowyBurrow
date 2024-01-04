@@ -9,7 +9,6 @@
 let
   gnomeExtensions = with pkgs.gnomeExtensions; [
     pano
-    unmess
     caffeine
     gsconnect
     logo-menu
