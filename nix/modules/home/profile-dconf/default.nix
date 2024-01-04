@@ -42,9 +42,11 @@ in
         (map (extension: extension.extensionUuid) gnomeExtensions) ++ [
           "light-style@gnome-shell-extensions.gcampax.github.com"
           "places-menu@gnome-shell-extensions.gcampax.github.com"
+          "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         ];
     };
     "org/gnome/shell/extensions/user-theme".name = config.gtk.theme.name;
+    "org/gnome/shell/extensions/auto-move-windows".application-list = [ "google-chrome.desktop:2" "kitty.desktop:3" "spotify.desktop:4" ];
     "org/gnome/shell/extensions/Logo-menu" = {
       hide-softwarecentre = true;
       menu-button-icon-image = 23;
