@@ -12,6 +12,7 @@ let
     unmess
     caffeine
     gsconnect
+    logo-menu
     mpris-label
     user-themes
     appindicator
@@ -44,6 +45,12 @@ in
         ];
     };
     "org/gnome/shell/extensions/user-theme".name = config.gtk.theme.name;
+    "org/gnome/shell/extensions/Logo-menu" = {
+      hide-softwarecentre = true;
+      menu-button-icon-image = 23;
+      show-activities-button = true;
+      menu-button-terminal = "kitty";
+    };
 
     "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
     "org/gnome/desktop/wm/preferences".button-layout = "close,maximize,minimize:appmenu";
