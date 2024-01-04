@@ -48,6 +48,11 @@ in
     };
     "org/gnome/shell/extensions/user-theme".name = config.gtk.theme.name;
     "org/gnome/shell/extensions/auto-move-windows".application-list = [ "google-chrome.desktop:2" "kitty.desktop:3" "spotify.desktop:4" ];
+    "org/gnome/shell/extensions/mpris-label" = {
+      album-size = 100;
+      second-field = "";
+      extension-index = 0;
+    };
     "org/gnome/shell/extensions/dash-to-dock" = {
       show-mounts = false;
       height-fraction = 1.0;
