@@ -40,6 +40,7 @@ in
       disabled-extensions = [ ];
       enabled-extensions =
         (map (extension: extension.extensionUuid) gnomeExtensions) ++ [
+          "apps-menu@gnome-shell-extensions.gcampax.github.com"
           "light-style@gnome-shell-extensions.gcampax.github.com"
           "places-menu@gnome-shell-extensions.gcampax.github.com"
           "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
