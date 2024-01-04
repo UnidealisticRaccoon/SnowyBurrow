@@ -17,6 +17,7 @@ let
     user-themes
     appindicator
     tailscale-qs
+    dash-to-dock
   ];
 in
 {
@@ -48,6 +49,11 @@ in
     };
     "org/gnome/shell/extensions/user-theme".name = config.gtk.theme.name;
     "org/gnome/shell/extensions/auto-move-windows".application-list = [ "google-chrome.desktop:2" "kitty.desktop:3" "spotify.desktop:4" ];
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      show-mounts = false;
+      height-fraction = 1.0;
+      running-indicator-style = "SEGMENTED";
+    };
     "org/gnome/shell/extensions/Logo-menu" = {
       hide-softwarecentre = true;
       menu-button-icon-image = 23;
