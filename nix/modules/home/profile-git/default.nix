@@ -5,9 +5,12 @@
 
 { flake, pkgs, ... }:
 {
-  home.shellAliases = {
-    g = "git";
-    lg = "lazygit";
+  home = {
+    packages = with pkgs; [ git-crypt ];
+    shellAliases = {
+      g = "git";
+      lg = "lazygit";
+    };
   };
 
   programs = {
