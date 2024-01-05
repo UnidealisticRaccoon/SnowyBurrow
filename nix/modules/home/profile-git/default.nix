@@ -15,6 +15,13 @@
 
   programs = {
     lazygit.enable = true;
+    gh = {
+      enable = true;
+      extensions = with pkgs; [
+        gh-dash
+        gh-markdown-preview
+      ];
+    };
     git = {
       enable = true;
       lfs.enable = true;
