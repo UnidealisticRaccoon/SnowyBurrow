@@ -11,6 +11,7 @@
       packages =
         (with pkgs;[
           vulnix
+          statix
         ]) ++ (with inputs;[
           nil.packages.${system}.default
         ]);
