@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   services.xserver = {
     displayManager.gdm.enable = true;
@@ -22,6 +22,10 @@
     lockAll = true;
     settings = {
       "org/gnome/desktop/peripherals/keyboard".numlock-state = true;
+      "org/gnome/desktop/interface" = {
+        cursor-size = lib.gvariant.mkInt32 32;
+        cursor-theme = "Catppuccin-Mocha-Dark-Cursors";
+      };
     };
   }];
 
@@ -30,6 +34,7 @@
     systemPackages = with pkgs; [
       gnome.dconf-editor
       gnome.gnome-tweaks
+      catppuccin-cursors.mochaDark
     ];
     gnome.excludePackages =
       (with pkgs; [
