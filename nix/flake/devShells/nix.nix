@@ -18,6 +18,7 @@
           nil.packages.${system}.default
           nix-init.packages.${system}.default
           nix-update.packages.${system}.default
+          nixpkgs-review.packages.${system}.default
         ]);
     };
   };

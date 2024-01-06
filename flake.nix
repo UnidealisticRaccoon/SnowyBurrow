@@ -160,6 +160,12 @@
       inputs.treefmt-nix.follows = "treefmt-nix";
       inputs.flake-parts.follows = "flake-parts";
     };
+    nixpkgs-review = {
+      url = "github:Mic92/nixpkgs-review";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+      inputs.flake-parts.follows = "flake-parts";
+    };
     nix-init = {
       url = "github:nix-community/nix-init";
       inputs.fenix.follows = "fenix";

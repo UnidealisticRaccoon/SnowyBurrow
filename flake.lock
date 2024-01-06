@@ -520,6 +520,32 @@
         "type": "github"
       }
     },
+    "nixpkgs-review": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": [
+          "treefmt-nix"
+        ]
+      },
+      "locked": {
+        "lastModified": 1704192838,
+        "narHash": "sha256-y3gkYKIhKRoinJ/b01+WG0mD7mp2iiD7CVYo0vFhsf0=",
+        "owner": "Mic92",
+        "repo": "nixpkgs-review",
+        "rev": "d75803365aac84b0d5ce95a1d2671fd82c674008",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nixpkgs-review",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1704295289,
@@ -609,6 +635,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-latest": "nixpkgs-latest",
         "nixpkgs-lib": "nixpkgs-lib",
+        "nixpkgs-review": "nixpkgs-review",
         "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
