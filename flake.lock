@@ -409,6 +409,32 @@
         "type": "github"
       }
     },
+    "nix-update": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "treefmt-nix": [
+          "treefmt-nix"
+        ]
+      },
+      "locked": {
+        "lastModified": 1704356803,
+        "narHash": "sha256-bJ/xnQ5HF9XtcvHF8sbNtiUo3OGA+5Et8MWqS0PazbQ=",
+        "owner": "Mic92",
+        "repo": "nix-update",
+        "rev": "4c763a7cf3770d043ef0351a40726b0f65c35eac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-update",
+        "type": "github"
+      }
+    },
     "nixos-generators": {
       "inputs": {
         "nixlib": [
@@ -577,6 +603,7 @@
         "nil": "nil",
         "nix-index-database": "nix-index-database",
         "nix-init": "nix-init",
+        "nix-update": "nix-update",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
