@@ -12,6 +12,7 @@
         (with pkgs;[
           vulnix
           statix
+          deadnix
         ]) ++ (with inputs;[
           nil.packages.${system}.default
         ]);
