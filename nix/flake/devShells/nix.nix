@@ -16,6 +16,7 @@
           nixpkgs-fmt
         ]) ++ (with inputs;[
           nil.packages.${system}.default
+          nix-init.packages.${system}.default
         ]);
     };
   };

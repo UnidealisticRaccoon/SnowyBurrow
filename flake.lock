@@ -89,6 +89,27 @@
         "type": "github"
       }
     },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": []
+      },
+      "locked": {
+        "lastModified": 1704262971,
+        "narHash": "sha256-3HB1yaMBBox3z9oXEiQuZzQhXegOc9P3FR6/XNsJGn0=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "38aaea4e54dc3874a6355c10861bd8316a6f09f3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -359,6 +380,35 @@
         "type": "github"
       }
     },
+    "nix-init": {
+      "inputs": {
+        "crane": [
+          "crane"
+        ],
+        "fenix": [
+          "fenix"
+        ],
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1704256779,
+        "narHash": "sha256-vYuHjmiGKF7/c8GOTb3AvjbhT8c+YIayP/0fzWjt45w=",
+        "owner": "nix-community",
+        "repo": "nix-init",
+        "rev": "00b96de0fee740db1e256c438ed38d4d6db7b7ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-init",
+        "type": "github"
+      }
+    },
     "nixos-generators": {
       "inputs": {
         "nixlib": [
@@ -513,6 +563,7 @@
         "deploy-rs": "deploy-rs",
         "disko": "disko",
         "ez-configs": "ez-configs",
+        "fenix": "fenix",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",
@@ -525,6 +576,7 @@
         "home-manager": "home-manager",
         "nil": "nil",
         "nix-index-database": "nix-index-database",
+        "nix-init": "nix-init",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
