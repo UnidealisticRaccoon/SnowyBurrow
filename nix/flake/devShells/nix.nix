@@ -13,6 +13,7 @@
           vulnix
           statix
           deadnix
+          nixpkgs-fmt
         ]) ++ (with inputs;[
           nil.packages.${system}.default
         ]);
