@@ -29,6 +29,22 @@
     };
   }];
 
+  nixpkgs = {
+    overlays = [
+      (self: super: {
+        gnome = super.gnome.overrideScope' (selfg: superg: {
+          gnome-shell = superg.gnome-shell.overrideAttrs (old: {
+            patches = (old.patches or [ ]) ++ [ ./shell_colors.patch ];
+            postPatch = let colors = ./_colors.scss; in old.postPatch + ''
+              rm data/theme/gnome-shell-sass/{_colors.scss,_palette.scss}
+              cp ${colors} data/theme/gnome-shell-sass/_colors.scss
+            '';
+          });
+        });
+      })
+    ];
+  };
+
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
     systemPackages = with pkgs; [
